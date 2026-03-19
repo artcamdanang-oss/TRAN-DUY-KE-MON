@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBGIAPHA" Class="dbGiaPhaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=DBGIAPHA;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DBGIAPHAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CT_CongViec" Member="CT_CongViecs">
+    <Type Name="CT_CongViec">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TGTu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TGDen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NoiCongTac" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="HOSO_CT_CongViec" Member="HOSO" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VC_HOSO" Member="VC_HOSOs">
+    <Type Name="VC_HOSO">
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSoVC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenThuongGoi" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TenHieu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HoTenBo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HoTenMe" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgayMatBo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgayMatMe" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConThu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoCMTND" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SoHoChieu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DanToc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TonGiao" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QuocTich" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HocVan" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgheNghiep" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="VC_HOSO_VC_CongViec" Member="VC_CongViecs" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="VC_CongViec" />
+      <Association Name="VC_HOSO_VC_DiVat" Member="VC_DiVats" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="VC_DiVat" />
+      <Association Name="VC_HOSO_VC_HocVan" Member="VC_HocVans" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="VC_HocVan" />
+      <Association Name="HOSO_VC_HOSO" Member="HOSO" ThisKey="IDHoSoVC" OtherKey="IDHoSo" Type="HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CT_HocVan" Member="CT_HocVans">
+    <Type Name="CT_HocVan">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TGTu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TGDen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CongViec" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HocTai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="HOSO_CT_HocVan" Member="HOSO" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CT_SuKien" Member="CT_SuKiens">
+    <Type Name="CT_SuKien">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TGTu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TGDen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SuKien" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="HOSO_CT_SuKien" Member="HOSO" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DanToc" Member="DanTocs">
+    <Type Name="DanToc">
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DIVAT" Member="DIVATs">
+    <Type Name="DIVAT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDiVat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TenDiVat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Video" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="HOSO_DIVAT" Member="HOSO" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOSO" Member="HOSOs">
+    <Type Name="HOSO">
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoToc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaHoSo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CapHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaHoSoBoMe" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TenThuongGoi" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TenHieu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConThu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoaiCon" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NoiSinh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SoLienLac" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ThuDienTu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SoCMTND" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SoHoChieu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DanToc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TonGiao" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QuocTich" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DaMat" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NgayMatDL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgayMatAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NoiAnTang" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HoTenVoChong" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ThuTuVoChong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySinhVoChong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NoiSinhVoChong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DiaChiVochong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DaMatVC" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NgayMatVoChong" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgayMatDLVoChong" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NoiAnTangVoChong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SoLienLacVoChong" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ThuDienTuVoChong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DaLyDi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HinhAnhVoChong" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HocVan" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgheNghiep" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GGNoiSinh" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GGNoiSinhVC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GGDiaChi" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GGDiaChiVC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GGNoiAnTang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GGNoiAnTangVC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GioiTinhGC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="HOSO_CT_CongViec" Member="CT_CongViecs" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="CT_CongViec" />
+      <Association Name="HOSO_VC_HOSO" Member="VC_HOSOs" ThisKey="IDHoSo" OtherKey="IDHoSoVC" Type="VC_HOSO" />
+      <Association Name="HOSO_CT_HocVan" Member="CT_HocVans" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="CT_HocVan" />
+      <Association Name="HOSO_CT_SuKien" Member="CT_SuKiens" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="CT_SuKien" />
+      <Association Name="HOSO_DIVAT" Member="DIVATs" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="DIVAT" />
+      <Association Name="HOTOC_HOSO" Member="HOTOC" ThisKey="IDHoToc" OtherKey="IDHoToc" Type="HOTOC" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOTOC" Member="HOTOCs">
+    <Type Name="HOTOC">
+      <Column Name="IDHoToc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaHoToc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TenHoToc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TenToOng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GioToOng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenToBa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GioToBa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenTruongHo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MaTruongHo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GhiChuHoToc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TenNguoiLap" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MaNguoiLap" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DoiThu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HOTOC_HOSO" Member="HOSOs" ThisKey="IDHoToc" OtherKey="IDHoToc" Type="HOSO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuocTich" Member="QuocTiches">
+    <Type Name="QuocTich">
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
+    <Type Name="TaiKhoan">
+      <Column Name="TenDN" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhanQuyen" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PQHoToc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TonGiao" Member="TonGiaos">
+    <Type Name="TonGiao">
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TruongHo" Member="TruongHos">
+    <Type Name="TruongHo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaHoToc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TruongHoCu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TruongHoMoi" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NgayThietLap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VanBan" Member="VanBans">
+    <Type Name="VanBan">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaHoToc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TapTin" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NgayThietLap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VC_CongViec" Member="VC_CongViecs">
+    <Type Name="VC_CongViec">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TGTu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TGDen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NoiCongTac" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="VC_HOSO_VC_CongViec" Member="VC_HOSO" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="VC_HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VC_DiVat" Member="VC_DiVats">
+    <Type Name="VC_DiVat">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDiVat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TenDiVat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Video" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="VC_HOSO_VC_DiVat" Member="VC_HOSO" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="VC_HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VC_HocVan" Member="VC_HocVans">
+    <Type Name="VC_HocVan">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TGTu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TGDen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CongViec" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HocTai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="VC_HOSO_VC_HocVan" Member="VC_HOSO" ThisKey="IDHoSo" OtherKey="IDHoSo" Type="VC_HOSO" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+</Database>

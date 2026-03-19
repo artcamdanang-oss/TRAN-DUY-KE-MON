@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="SoanPha.Home" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Phần Mềm Soạn Phả</title>
+    <link href="Themes/Styles.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        function MSGBOX(thongbao) {
+            if (confirm(thongbao) == true)
+                return true;
+            else
+                return false;
+        }
+        function close_window() {
+            if (confirm("Bạn muốn đóng cửa sổ đang làm việc này không?")) {
+                close();
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="frmGiaPha" runat="server" autocomplete="off">
+        <div id="menutop">
+            <div id="menu">
+                <ul>
+                    <li><a href="default.aspx">Trang Chủ</a></li>
+                    <%
+                        if ((Boolean)Session["login"] == true)
+                        {%>
+                    <% if (Session["type"].ToString().ToUpper() == "ADMIN")
+                        {%>
+                    <li><a href="QuanLyTaiKhoan.aspx" target="_blank">QL tài khoản</a></li>
+                    <%} %>
+                    <li><a href="DoiMatKhau.aspx" target="_blank">Đổi mật khẩu</a></li>
+                    <li><a href="dangxuat.aspx">Đăng xuất</a></li>
+                    <%}
+                        else
+                        {
+                    %>
+                    <li><a href="DangNhap.aspx">Đăng nhập</a></li>
+                    <%
+                        }
+                    %>
+                    <li><a href="#" onclick="window.location.reload(true);">Refresh</a></li>
+                    <li><a href="javascript:close_window();">Kết thúc</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="maincontent" style="width:98%">
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
